@@ -1,0 +1,126 @@
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/fondo.png);
+    color: white
+}
+
+.container {
+    max-width: 500px;
+    max-height: 400px;
+    margin: auto;
+    margin-top: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #003053;
+}
+
+.container_reg{
+    max-width: 500px;
+    max-height: 560px;
+    margin: auto;
+    margin-top: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #003053;
+}
+
+.container_chat{
+    max-width: 500px;
+    max-height: 700px;
+    margin: auto;
+    margin-top: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3C5973;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#chat-box {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#message {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    background-color: #c82333;
+}
+
+p {
+    text-align: center;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+
+}
+
+.logo img{
+    width: 300px;
+    height: 300px;
+}
+
+.iniciologo{
+    display: flex; align-items: center; justify-content: center;
+}
