@@ -14,6 +14,40 @@ const btnCerrarChat = document.getElementById("btnCerrarChat");
 const chatMessages = document.getElementById("chat-messages");
 const chatForm = document.getElementById("chat-form");
 const messageInput = document.getElementById("message-input");
+const crearSvForm = document.getElementById("crearSv");
+const servidoresCreados = document.getElementById("sv");
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const crearSvForm = document.getElementById("crearSv");
+    const servidoresCreados = document.getElementById("sv");
+
+    crearSvForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita que el formulario se envíe normalmente
+
+        // Obtiene los valores del formulario
+        const serverNameInput = document.getElementById("serverName");
+        const serverDescInput = document.getElementById("serverDesc");
+        const nombreServidor = serverNameInput.value;
+        const descripcionServidor = serverDescInput.value;
+
+        // Crea un nuevo elemento div
+        const nuevoServidor = document.createElement("div");
+        nuevoServidor.className = "servidor";
+        nuevoServidor.innerHTML = `<h3>${nombreServidor}</h3><p>${descripcionServidor}</p>`;
+
+        // Agrega el nuevo servidor a la lista de servidores creados
+        servidoresCreados.appendChild(nuevoServidor);
+
+        // Cierra el popup
+        const popup = document.getElementById("popup");
+        popup.style.display = "none";
+
+        // Limpia los campos del formulario
+        serverNameInput.value = "";
+        serverDescInput.value = "";
+    });
+});
 
 // Función para agregar un mensaje al chat
 function agregarMensaje(mensaje) {
@@ -28,12 +62,6 @@ function agregarMensaje(mensaje) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-chatForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que se envíe el formulario
-    const mensajeUsuario = messageInput.value; // Obtiene el mensaje del usuario
-    agregarMensaje(mensajeUsuario); // Agrega el mensaje al chat
-    messageInput.value = ""; // Limpia el campo de entrada después de enviar
-});
 
 // Agrega un evento de clic al botón
 btnCerrarChat.addEventListener("click", function() {
@@ -69,3 +97,76 @@ enlacesMenu.forEach(enlace => {
 agregarSV.addEventListener('click', () => popup.style.display = 'flex')
 
 chatContainer.removeAttribute("hidden");
+
+document.addEventListener("DOMContentLoaded", function () {
+    const btnMostrarServidores = document.getElementById("btnMostrarServidores");
+    const servidoresCreados = document.getElementById("servidoresCreados");
+
+    // Ocultar la sección de servidores al principio
+    servidoresCreados.style.display = "none";
+
+    btnMostrarServidores.addEventListener("click", function () {
+        // Alternar la visibilidad de la sección de servidores
+        if (servidoresCreados.style.display === "none" || servidoresCreados.style.display === "") {
+            servidoresCreados.style.display = "block";
+        } else {
+            servidoresCreados.style.display = "none";
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const servidoresCreados = document.getElementById("servidoresCreados");
+    const cajachat = document.getElementById("cajachat");
+
+    // Función para mostrar el chat
+    function mostrarChat() {
+        cajachat.style.display = "block";
+    }
+
+    // Verificar si hay servidores creados al cargar la página
+    if (servidoresCreados.children.length > 0) {
+        // No mostrar el chat en la página principal
+    }
+
+    // Agregar un evento cuando se hace clic en un servidor para mostrar el chat
+    servidoresCreados.addEventListener("click", function (event) {
+        const elementoClickeado = event.target;
+        if (elementoClickeado.classList.contains("sv")) {
+            mostrarChat();
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const messageInput = document.getElementById("message-input");
+    const sendButton = document.getElementById("send-button");
+    const chatMessages = document.getElementById("chat-messages");
+
+    // Función para agregar un mensaje al chat
+    function agregarMensaje(mensaje) {
+        const nuevoMensaje = document.createElement("div");
+        nuevoMensaje.className = "mensaje";
+        nuevoMensaje.textContent = mensaje;
+        chatMessages.appendChild(nuevoMensaje);
+    }
+
+    // Agregar un evento para el envío de mensajes
+    sendButton.addEventListener("click", function () {
+        const mensaje = messageInput.value;
+        if (mensaje.trim() !== "") {
+            agregarMensaje(mensaje);
+            messageInput.value = ""; // Limpiar el campo de entrada
+        }
+    });
+
+    // También puedes escuchar eventos de teclado (por ejemplo, al presionar Enter)
+    messageInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Evitar que se agregue una nueva línea en el campo de entrada
+            sendButton.click(); // Simular un clic en el botón de enviar
+        }
+    });
+});
+
+

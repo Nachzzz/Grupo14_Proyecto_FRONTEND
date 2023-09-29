@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("login-form");
 
   form.addEventListener("submit", function (event) {
@@ -53,3 +53,4 @@ document.addEventListener("DOMContentLoaded", function () {
       // form.submit(); // Descomenta esta línea para enviar el formulario realmente
   });
 });
+*/

@@ -184,10 +184,18 @@ body {
     width: 15%;
 }
 
-.canales{
+.servidoresCreados{
     height: 90vh;
     background-color: #184463;
     border-radius: 10px;
+}
+
+.sv{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: darkgoldenrod;
 }
 
 .user{
@@ -313,3 +321,34 @@ body {
     padding: 10px;
     cursor: pointer;
 }
+
+
+#servidoresCreados {
+    text-align: center;
+}
+
+
+
+/* Estilo de interacción */
+#servidoresCreados div:hover {
+    background-color: #e0e0e0; /* Cambio de color al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+/* Estilo de tamaño y alineación */
+#servidoresCreados div {
+    max-width: 200px; /* Ancho máximo para cada canal */
+    height: 40px; /* Altura fija para cada canal */
+    display: flex; /* Para alinear contenido verticalmente */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    overflow: hidden; /* Oculta el contenido desbordado */
+    white-space: nowrap; /* Evita el desbordamiento de texto a múltiples líneas */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) para el texto desbordado */
+    padding: 5px; /* Espaciado interno */
+    margin: 5px; /* Espaciado entre canales */
+    border: 1px solid #ccc; /* Borde con color y grosor */
+    border-radius: 5px; /* Bordes redondeados */
+}
+

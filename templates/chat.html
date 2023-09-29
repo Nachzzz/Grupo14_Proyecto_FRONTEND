@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,87 +10,94 @@
     <link rel="stylesheet" href="../static/css/chatstyle.css">
     <!-- JS -->
     <script src="../static/js/chatjs.js" defer></script>
+    <script src="../static/js/mostrar_canales.js"></script>
 </head>
+
 <body>
-<div class="chat" id="chat">
-    <div class="menu-dashboard">
-        <!-- TOP MENU -->
-        <div class="top-menu">
-            <div class="logo">
-                <img src="../static/images/logo.png">
+    <div class="chat" id="chat">
+        <div class="menu-dashboard">
+            <!-- TOP MENU -->
+            <div class="top-menu">
+                <div class="logo">
+                    <img src="../static/images/logo.png">
+                </div>
+                <div class="toggle">
+                    <i class='bx bx-menu'><img src="../static/images/bx-menu.svg"></i>
+                </div>
             </div>
-            <div class="toggle">
-                <i class='bx bx-menu'><img src="../static/images/bx-menu.svg"></i>
+            <!-- BUSCADOR -->
+            <div class="input-search">
+                <i class='bx bx-search'></i>
+                <input type="text" class="input" placeholder="Buscar">
+            </div>
+            <!-- MENU -->
+            <div class="menu">
+
+                <div class="enlace" id="añadirSv">
+                    <i class="bx bx-message-square"><img src="../static/images/bx-add-to-queue.svg" alt=""></i>
+                    <span>Añadir Servidor</span>
+                </div>
+
+                <div class="enlace">
+                    <i class="bx bx-cog"><img src="../static/images/bx-message-square-dots.svg" alt=""></i>
+                    <span id="btnMostrarServidores">Servidores</span>
+                </div>
+
             </div>
         </div>
-        <!-- BUSCADOR -->
-        <div class="input-search">
-            <i class='bx bx-search'></i>
-            <input type="text" class="input" placeholder="Buscar">
-        </div>
-        <!-- MENU -->
-        <div class="menu">
+        <div class="section">
 
-            <div class="enlace" id="añadirSv">
-                <i class="bx bx-message-square"><img src="../static/images/bx-add-to-queue.svg" alt=""></i>
-                <span>Añadir Servidor</span>
+            <!--Seccion servidores-->
+            <div class="servidoresCreados" id="servidoresCreados">
+                <div class="sv" id="sv">
+
+                </div>
             </div>
 
-            <div class="enlace">
-                <i class="bx bx-cog"><img src="../static/images/bx-message-square-dots.svg" alt=""></i>
-                <span>Servidores</span>
-            </div>
-
-        </div>
-    </div>
-    <div class="section">
-
-        <!--Seccion canales-->
-        <div class="canales" id="canales">
-        </div>
-
-        <!--Seccion usuario-->
-        <div class="user">
+            <!--Seccion usuario-->
+            <div class="user">
                 <i class="bx bx-user"><img src="../static/images/bx-user.svg" alt=""></i>
-                <a class="cerrarSesion" href="../templates/login.html">Cerrar Sesión</a>
-        </div>
-    </div>
-
-    <div class="cajachat" id="cajachat">
-        <div class="header">
-            <!-- Título del canal o servidor -->
-            <h2>Nombre del Canal</h2>
-            <h2>Servidor</h2>
-            <!-- Botón de cierre de la bandeja de chat -->
-            <button id="btnCerrarChat">Cerrar</button>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <!-- Mensajes del chat -->
-        </div>
-        <div class="chat-input">
-            <!-- Formulario para escribir mensajes -->
-            <input type="text" class="message-input" id="message-input" placeholder="Escribe un mensaje">
-            <button type="submit" id="send-button">Enviar</button>
-        </div>
-    </div>
-
-
-    <!--Pop up registro usuario-->
-    <div class="popup" id="popup">
-        <a href="#" id="btnCerrarPopup" class="vtnCerrarPopup">
-            <i><img src="../static/images/x.png"></i>
-        </a>
-        <h3>Crear un servidor</h3>
-        <form id="crearSv">
-            <div class="contInputs">
-                <input type="text" placeholder="Nombre del servidor" id="serverName">
-                <input type="text" placeholder="Descripcion" id="serverDesc">
+                <a class="cerrarSesion" href="/">Cerrar Sesión</a>
             </div>
-            <input type="submit" class="btnSumbit" value="Crear">
-        </form>
-    </div>
+        </div>
 
-</div>
+        <div class="cajachat" id="cajachat" style="display: none;">
+            <div class="header">
+                <!-- Título del canal o servidor -->
+                <h2>Nombre del Canal</h2>
+                <h2>Servidor</h2>
+                <!-- Botón de cierre de la bandeja de chat -->
+                <button id="btnCerrarChat">Cerrar</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Mensajes del chat -->
+                <div class="chat-messages" id="chat-messages">
+                </div>
+            </div>
+            <div class="chat-input">
+                <!-- Formulario para escribir mensajes -->
+                <input type="text" class="message-input" id="message-input" placeholder="Escribe un mensaje">
+                <button type="submit" id="send-button">Enviar</button>
+            </div>
+        </div>
+
+
+        <!--Pop up registro de servidor-->
+        <div class="popup" id="popup">
+            <a href="#" id="btnCerrarPopup" class="vtnCerrarPopup">
+                <i><img src="../static/images/x.png"></i>
+            </a>
+            <h3>Crear un servidor</h3>
+            <form action="/crearServidor" method="POST" id="crearSv">
+                <div class="contInputs">
+                    <input type="text" placeholder="Nombre del servidor" id="serverName" name="nombreServidor">
+                    <input type="text" placeholder="Descripcion" id="serverDesc" name="descripcion">
+                </div>
+                <input type="submit" class="btnSumbit" value="Crear">
+            </form>
+        </div>
+
+    </div>
 </body>
 
 

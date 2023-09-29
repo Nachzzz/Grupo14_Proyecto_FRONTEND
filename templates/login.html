@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
     </style>
 </head>
+
 <body>
     <a class="iniciologo" href="login.html">
         <div class="logo">
@@ -17,7 +19,7 @@
     </a>
     <div class="container">
         <h1>Iniciar Sesión</h1>
-        <form id="login-form">
+        <form method="POST" action="/loginComprobar" id="login-form">
             <div class="form-group">
                 <label for="username">Nombre de Usuario:</label>
                 <input type="text" id="username" name="username" required>
@@ -32,4 +34,5 @@
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
